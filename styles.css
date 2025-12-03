@@ -1,0 +1,58 @@
+:root {
+  --bg: #faf3e6;
+  --card: #fff8ef;
+  --accent: #d7a86e;
+  --accent-dark: #b78b4e;
+  --text: #3b2f2f;
+}
+
+body {
+  margin:0; font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header {
+  display:flex; justify-content:space-between; align-items:center;
+  background: var(--card); padding: 15px 30px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.logo { font-size:24px; font-weight:bold; color: var(--accent-dark); }
+
+nav a {
+  margin-left:20px; text-decoration:none; color: var(--text); font-weight:bold;
+}
+nav a.active, nav a:hover { color: var(--accent); }
+
+.hero { text-align:center; padding:60px 20px; background: var(--card); border-bottom:2px solid var(--accent); }
+
+.catalog, .products { display:grid; gap:30px; padding:40px; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); }
+
+.cat-card, .product { background: var(--card); border-radius:12px; padding:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:.3s; text-align:center; }
+.cat-card:hover, .product:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+
+.product img, .cat-card img { width:100%; border-radius:10px; }
+
+.btn { background: var(--accent); color:white; padding:10px 15px; border-radius:10px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:10px; transition:.3s; }
+.btn:hover { background: var(--accent-dark); }
+
+.contact { margin-top:10px; font-weight:bold; color: var(--accent-dark); }
+
+.filter { display:flex; justify-content:center; gap:10px; margin:20px; flex-wrap:wrap; }
+.filter-btn { background: var(--accent); border:none; padding:8px 15px; border-radius:10px; color:white; font-weight:bold; cursor:pointer; transition:.3s; }
+.filter-btn:hover { background: var(--accent-dark); }
+
+.fade-in { opacity:0; transform:translateY(30px); animation:fadeIn .8s forwards; }
+@keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
+
+footer { text-align:center; padding:25px; background: var(--card); border-top:2px solid var(--accent); margin-top:40px; }
+
+.cat-card img, .product img {
+  width: 100%;        /* займає всю ширину контейнера */
+  height: auto;       /* зберігає пропорції */
+  max-height: 300px;  /* обмежує висоту */
+  object-fit: cover;  /* обрізає зайве, якщо потрібно */
+  border-radius: 10px;
+}
+

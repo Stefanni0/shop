@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Швейна фурнітура</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">FurniShop</div>
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="sewing.html" class="active">Швейна</a>
+    <a href="furniture.html">Меблева</a>
+    <a class="phone" href="tel:+380000000000">+38 (000) 000-00-00</a>
+  </nav>
+</header>
+
+<section class="page-title fade-in">
+  <h2>Швейна фурнітура</h2>
+</section>
+
+<section class="filter">
+  <button class="filter-btn" onclick="filterProducts('all')">Всі</button>
+  <button class="filter-btn" onclick="filterProducts('threads')">Нитки</button>
+  <button class="filter-btn" onclick="filterProducts('buttons')">Гудзики</button>
+  <button class="filter-btn" onclick="filterProducts('zippers')">Блискавки</button>
+</section>
+
+<section class="products">
+  <div class="product fade-in threads">
+    <img src="https://i.pinimg.com/1200x/e3/15/db/e315db97007fa9509954e924f4947b8d.jpg" alt="Нитки">
+    <h3>Нитки</h3>
+    <p>Міцні, поліестерові. Довжина: 500 м.</p>
+    <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
+    <span class="price">від 40 грн</span>
+    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+  </div>
+
+  <div class="product fade-in buttons">
+    <img src="https://i.pinimg.com/1200x/02/e4/38/02e438217830b4177ea0acf915596559.jpg" alt="Гудзики">
+    <h3>Гудзики</h3>
+    <p>Різні кольори та розміри. Набір 20 шт.</p>
+    <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
+    <span class="price">від 25 грн</span>
+    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+  </div>
+
+  <div class="product fade-in zippers">
+    <img src="https://furnix.com.ua/image/cache/catalog/tovar/1358092112_zmejka-dlya-odezhdyn-800x800.jpg" alt="Блискавки">
+    <h3>Блискавки</h3>
+    <p>Довжина: 20–60 см. Багато кольорів.</p>
+    <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
+    <span class="price">від 18 грн</span>
+    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+  </div>
+</section>
+
+<footer>
+  <p><b>Контакти:</b></p>
+  <p>Телефон: +380 00 000 0000</p>
+  <p>Email: furnitura.shop@example.com</p>
+  <p>Адреса: м. Київ, вул. Прикладна 12</p>
+</footer>
+
+</body>
+</html>

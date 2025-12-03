@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Меблева фурнітура</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">FurniShop</div>
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="sewing.html">Швейна</a>
+    <a href="furniture.html" class="active">Меблева</a>
+    <a class="phone" href="tel:+380000000000">+38 (000) 000-00-00</a>
+  </nav>
+</header>
+
+<section class="page-title fade-in">
+  <h2>Меблева фурнітура</h2>
+</section>
+
+<!-- Фильтр по категориям -->
+<section class="filter">
+  <button class="filter-btn" onclick="filterFurniture('all')">Всі</button>
+  <button class="filter-btn" onclick="filterFurniture('handles')">Ручки</button>
+  <button class="filter-btn" onclick="filterFurniture('hinges')">Петлі</button>
+  <button class="filter-btn" onclick="filterFurniture('legs')">Ніжки</button>
+</section>
+
+<section class="products">
+  <div class="product fade-in handles">
+    <img src="https://i.pinimg.com/1200x/06/a9/87/06a987faeeb263cc35d17ad2348dd7cd.jpg" alt="Ручки для меблів">
+    <h3>Ручки меблеві</h3>
+    <p>Металеві, сучасний дизайн. В комплекті гвинти.</p>
+    <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
+    <span class="price">від 55 грн</span>
+    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+  </div>
+
+  <div class="product fade-in hinges">
+    <img src="https://homedoors.com.ua/image/cache/catalog/image/catalog/category/category_zavisy.webp" alt="Петлі">
+    <h3>Петлі</h3>
+    <p>Надійні, сталеві. Плавний хід.</p>
+    <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
+    <span class="price">від 35 грн</span>
+    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+  </div>
+
+  <div class="product fade-in legs">
+    <img src="https://cdn.27.ua/799/34/f0/9843952_2.jpeg" alt="Ніжки для меблів">
+    <h3>Ніжки для меблів</h3>
+    <p>Висота 10–20 см. Метал / дерево.</p>
+    <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
+    <span class="price">від 80 грн</span>
+    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+  </div>
+</section>
+
+<footer>
+  <p><b>Контакти:</b></p>
+  <p>Телефон: +380 00 000 0000</p>
+  <p>Email: furnitura.shop@example.com</p>
+  <p>Адреса: м. Київ, вул. Прикладна 12</p>
+</footer>
+
+</body>
+</html>
+
+
