@@ -6,6 +6,7 @@
 <title>Швейна фурнітура</title>
 <link rel="stylesheet" href="styles.css">
 <script defer src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -37,7 +38,7 @@
     <p>Міцні, поліестерові. Довжина: 500 м.</p>
     <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
     <span class="price">від 40 грн</span>
-    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+    <button class="buy btn" onclick="addToOrder('Нитки')">Замовити</button>
   </div>
 
   <div class="product fade-in buttons">
@@ -46,7 +47,7 @@
     <p>Різні кольори та розміри. Набір 20 шт.</p>
     <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
     <span class="price">від 25 грн</span>
-    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+   <button class="buy btn" onclick="addToOrder('Гудзики')">Замовити</button>
   </div>
 
   <div class="product fade-in zippers">
@@ -55,7 +56,39 @@
     <p>Довжина: 20–60 см. Багато кольорів.</p>
     <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
     <span class="price">від 18 грн</span>
-    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+    <button class="buy btn" onclick="addToOrder('Блискавки')">Замовити</button>
+  </div>
+</section>
+
+<section class="order-form">
+  <h2>Оформити замовлення</h2>
+
+  <form id="orderForm">
+
+    <input type="text" name="name" placeholder="Ваше ім'я" required>
+    <input type="tel" name="phone" placeholder="Телефон" required>
+    <input type="email" name="email" placeholder="Email">
+
+    <!-- комментарий -->
+    <textarea name="comment" placeholder="Коментар"></textarea>
+
+    <!-- товар -->
+    <input type="hidden" name="product" id="productField">
+
+    <!-- оплата -->
+    <select name="payment">
+      <option value="Наложений платіж">Наложений платіж</option>
+      <option value="Оплата на карту">Оплата на карту</option>
+    </select>
+    
+     <input type="hidden" name="product" id="productField">
+    <button type="submit" class="btn">Надіслати</button>
+  </form>
+
+  <div class="card-info">
+    <p><b>Оплата на карту:</b></p>
+    <p>💳 5168 7420 1234 5678</p>
+    <p>Monobank</p>
   </div>
 </section>
 

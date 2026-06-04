@@ -6,6 +6,7 @@
 <title>Меблева фурнітура</title>
 <link rel="stylesheet" href="styles.css">
 <script defer src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -38,7 +39,7 @@
     <p>Металеві, сучасний дизайн. В комплекті гвинти.</p>
     <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
     <span class="price">від 55 грн</span>
-    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+    <button class="buy btn" onclick="addToOrder('Ручки меблеві')">Замовити</button>
   </div>
 
   <div class="product fade-in hinges">
@@ -47,7 +48,7 @@
     <p>Надійні, сталеві. Плавний хід.</p>
     <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
     <span class="price">від 35 грн</span>
-    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+    <button class="buy btn" onclick="addToOrder('Петлі')">Замовити</button>
   </div>
 
   <div class="product fade-in legs">
@@ -56,7 +57,40 @@
     <p>Висота 10–20 см. Метал / дерево.</p>
     <div class="contact">Для замовлення телефонуйте: <b>+380 00 000 0000</b></div>
     <span class="price">від 80 грн</span>
-    <a class="buy btn" href="tel:+380000000000">Замовити</a>
+   <button class="buy btn" onclick="addToOrder('Ніжки для меблів')">Замовити</button>
+  </div>
+</section>
+
+
+<section class="order-form">
+  <h2>Оформити замовлення</h2>
+
+  <form id="orderForm">
+
+    <input type="text" name="name" placeholder="Ваше ім'я" required>
+    <input type="tel" name="phone" placeholder="Телефон" required>
+    <input type="email" name="email" placeholder="Email">
+
+    <!-- комментарий -->
+    <textarea name="comment" placeholder="Коментар"></textarea>
+
+    <!-- товар -->
+    <input type="hidden" name="product" id="productField">
+
+    <!-- оплата -->
+    <select name="payment">
+      <option value="Наложений платіж">Наложений платіж</option>
+      <option value="Оплата на карту">Оплата на карту</option>
+    </select>
+
+ <input type="hidden" name="product" id="productField">
+    <button type="submit" class="btn">Надіслати</button>
+  </form>
+
+  <div class="card-info">
+    <p><b>Оплата на карту:</b></p>
+    <p>💳 5168 7420 1234 5678</p>
+    <p>Monobank</p>
   </div>
 </section>
 
