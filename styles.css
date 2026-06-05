@@ -132,3 +132,20 @@ footer { text-align:center; padding:25px; background: var(--card); border-top:2p
   color: #6b5b4b;
   line-height: 1.5;
 }
+
+.social {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.social img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social img:hover {
+  transform: scale(1.2);
+}
