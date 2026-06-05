@@ -121,3 +121,14 @@ footer { text-align:center; padding:25px; background: var(--card); border-top:2p
 #orderSection {
   display: none;
 }
+.delivery-note {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fdf8f1;
+  border: 1px solid #e5d5be;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b5b4b;
+  line-height: 1.5;
+}

@@ -1,6 +1,6 @@
 emailjs.init("N2j-GXJ7sG9TmFDum");
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const prices = {
   "Нитки": 40,
@@ -26,7 +26,9 @@ function renderCart() {
 
   if (!list || !totalEl) return;
 
-  document.getElementById("orderSection").style.display = "block";
+  if (cart.length > 0) {
+    document.getElementById("orderSection").style.display = "block";
+  }
 
   list.innerHTML = "";
 
@@ -53,6 +55,8 @@ function renderCart() {
     cart.map(i => `${i.name} x${i.qty}`).join(", ");
 
   document.getElementById("totalField").value = total;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function changeQty(i, val) {
@@ -84,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("orderForm");
 
+  renderCart();
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -108,13 +114,20 @@ document.addEventListener("DOMContentLoaded", () => {
       "template_j1keq2c",
       form
     ).then(() => {
+
       alert("Замовлення відправлено!");
 
       cart = [];
+      localStorage.removeItem("cart");
+
       renderCart();
       form.reset();
-      document.getElementById("orderSection").style.display = "none";
+
+    }).catch((error) => {
+      console.log(error);
+      alert("Помилка відправки");
     });
+
   });
 
 });
