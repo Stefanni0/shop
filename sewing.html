@@ -73,7 +73,22 @@
     <textarea name="comment" placeholder="Коментар"></textarea>
 
     <!-- товар -->
-    <input type="hidden" name="product" id="productField">
+    <h3>Доставка</h3>
+
+<select name="delivery" id="delivery" onchange="changeDelivery()">
+  <option value="Нова Пошта">Нова Пошта</option>
+  <option value="Укрпошта">Укрпошта</option>
+</select>
+
+<div id="novaPost">
+  <input type="text" name="nova_branch" placeholder="Номер відділення">
+</div>
+
+<div id="ukrPost" style="display:none;">
+  <input type="text" name="postcode" placeholder="Поштовий індекс">
+</div>
+
+<input type="text" name="address" placeholder="Місто, вулиця, будинок">
 
     <!-- оплата -->
     <select name="payment">
@@ -81,6 +96,7 @@
       <option value="Оплата на карту">Оплата на карту</option>
     </select>
     
+
      <input type="hidden" name="product" id="productField">
     <button type="submit" class="btn">Надіслати</button>
   </form>

@@ -60,3 +60,13 @@ function filterFurniture(category) {
     else p.style.display = p.classList.contains(category)?'block':'none';
   });
 }
+
+function changeDelivery() {
+  const delivery = document.getElementById("delivery").value;
+
+  document.getElementById("novaPost").style.display =
+    delivery === "Нова Пошта" ? "block" : "none";
+
+  document.getElementById("ukrPost").style.display =
+    delivery === "Укрпошта" ? "block" : "none";
+}

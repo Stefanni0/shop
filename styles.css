@@ -56,3 +56,64 @@ footer { text-align:center; padding:25px; background: var(--card); border-top:2p
   border-radius: 10px;
 }
 
+/* Форма замовлення */
+
+.order-form {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  background: var(--card);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.order-form h2,
+.order-form h3 {
+  text-align: center;
+  color: var(--accent-dark);
+  margin-bottom: 15px;
+}
+
+.order-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea {
+  padding: 12px;
+  border: 2px solid #e5d5be;
+  border-radius: 10px;
+  font-size: 16px;
+  background: white;
+  transition: 0.3s;
+}
+
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(215,168,110,0.3);
+}
+
+.order-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.order-form .btn {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#novaPost,
+#ukrPost {
+  background: #fdf8f1;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #e5d5be;
+}
