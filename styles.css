@@ -117,3 +117,7 @@ footer { text-align:center; padding:25px; background: var(--card); border-top:2p
   border-radius: 10px;
   border: 1px solid #e5d5be;
 }
+
+#orderSection {
+  display: none;
+}

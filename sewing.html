@@ -65,6 +65,17 @@
 
   <form id="orderForm">
 
+    <h3>🛒 Кошик</h3>
+
+<div id="orderSection" style="display:none;">
+  <ul id="cartList"></ul>
+  <p><b>Всього:</b> <span id="totalPrice">0</span> грн</p>
+</div>
+
+<input type="hidden" name="cart" id="cartField">
+<input type="hidden" name="total" id="totalField">
+<input type="hidden" name="delivery_info" id="deliveryInfoField">
+
     <input type="text" name="name" placeholder="Ваше ім'я" required>
     <input type="tel" name="phone" placeholder="Телефон" required>
     <input type="email" name="email" placeholder="Email">
@@ -95,9 +106,10 @@
       <option value="Наложений платіж">Наложений платіж</option>
       <option value="Оплата на карту">Оплата на карту</option>
     </select>
-    
+    <input type="hidden" name="cart" id="cartField">
+  <input type="hidden" name="total" id="totalField">
+  <input type="hidden" name="delivery_info" id="deliveryInfoField">
 
-     <input type="hidden" name="product" id="productField">
     <button type="submit" class="btn">Надіслати</button>
   </form>
 

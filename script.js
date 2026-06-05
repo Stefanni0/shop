@@ -1,72 +1,120 @@
 emailjs.init("N2j-GXJ7sG9TmFDum");
 
-let selectedProduct = "";
+let cart = [];
 
-// выбор товара
-function addToOrder(productName) {
-    selectedProduct = productName;
+const prices = {
+  "Нитки": 40,
+  "Гудзики": 25,
+  "Блискавки": 18,
+  "Ручки меблеві": 55,
+  "Петлі": 35,
+  "Ніжки для меблів": 80
+};
 
-    document.getElementById("orderForm").scrollIntoView({ behavior: "smooth" });
+function addToOrder(name) {
+  let item = cart.find(i => i.name === name);
 
-    alert("Товар: " + productName);
+  if (item) item.qty++;
+  else cart.push({ name, qty: 1 });
+
+  renderCart();
 }
 
+function renderCart() {
+  const list = document.getElementById("cartList");
+  const totalEl = document.getElementById("totalPrice");
+
+  if (!list || !totalEl) return;
+
+  document.getElementById("orderSection").style.display = "block";
+
+  list.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    let sum = prices[item.name] * item.qty;
+    total += sum;
+
+    list.innerHTML += `
+      <li>
+        ${item.name} × 
+        <input type="number" value="${item.qty}" min="1"
+          onchange="changeQty(${i}, this.value)">
+        = ${sum} грн
+        <button type="button" onclick="removeItem(${i})">❌</button>
+      </li>
+    `;
+  });
+
+  totalEl.innerText = total;
+
+  document.getElementById("cartField").value =
+    cart.map(i => `${i.name} x${i.qty}`).join(", ");
+
+  document.getElementById("totalField").value = total;
+}
+
+function changeQty(i, val) {
+  cart[i].qty = parseInt(val);
+  renderCart();
+}
+
+function removeItem(i) {
+  cart.splice(i, 1);
+  renderCart();
+
+  if (cart.length === 0) {
+    document.getElementById("orderSection").style.display = "none";
+  }
+}
+
+function changeDelivery() {
+  let d = document.getElementById("delivery").value;
+
+  document.getElementById("novaPost").style.display =
+    d === "Нова Пошта" ? "block" : "none";
+
+  document.getElementById("ukrPost").style.display =
+    d === "Укрпошта" ? "block" : "none";
+}
+
+// отправка
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("orderForm");
 
-  if (!form) return;
-
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // вставляем товар в hidden input
-    document.getElementById("productField").value = selectedProduct;
+    let delivery = document.getElementById("delivery").value;
 
-    // ВАЖНО: sendForm, а не send
+    let info =
+      delivery === "Нова Пошта"
+        ? document.querySelector('[name="nova_branch"]').value
+        : document.querySelector('[name="postcode"]').value;
+
+    document.getElementById("deliveryInfoField").value = info;
+
+    document.getElementById("cartField").value =
+      cart.map(i => `${i.name} x${i.qty}`).join(", ");
+
+    let total = 0;
+    cart.forEach(i => total += prices[i.name] * i.qty);
+    document.getElementById("totalField").value = total;
+
     emailjs.sendForm(
       "service_xt3ba4m",
       "template_j1keq2c",
       form
-    )
-    .then(() => {
+    ).then(() => {
       alert("Замовлення відправлено!");
-      form.reset();
-      selectedProduct = "";
-    })
-    .catch((error) => {
-      console.log("EMAILJS ERROR:", error);
-      alert("Помилка відправки");
-    });
 
+      cart = [];
+      renderCart();
+      form.reset();
+      document.getElementById("orderSection").style.display = "none";
+    });
   });
 
 });
-
-
-// фильтры
-function filterProducts(category) {
-    const products = document.querySelectorAll('.products .product');
-    products.forEach(p=>{
-        if(category==='all') p.style.display='block';
-        else p.style.display = p.classList.contains(category)?'block':'none';
-    });
-}
-
-function filterFurniture(category) {
-  const products = document.querySelectorAll('.products .product');
-  products.forEach(p=>{
-    if(category==='all') p.style.display='block';
-    else p.style.display = p.classList.contains(category)?'block':'none';
-  });
-}
-
-function changeDelivery() {
-  const delivery = document.getElementById("delivery").value;
-
-  document.getElementById("novaPost").style.display =
-    delivery === "Нова Пошта" ? "block" : "none";
-
-  document.getElementById("ukrPost").style.display =
-    delivery === "Укрпошта" ? "block" : "none";
-}

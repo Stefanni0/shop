@@ -67,20 +67,48 @@
 
   <form id="orderForm">
 
+    <h3>🛒 Кошик</h3>
+
+<div id="orderSection" style="display:none;">
+  <ul id="cartList"></ul>
+  <p><b>Всього:</b> <span id="totalPrice">0</span> грн</p>
+</div>
+
+<input type="hidden" name="cart" id="cartField">
+<input type="hidden" name="total" id="totalField">
+<input type="hidden" name="delivery_info" id="deliveryInfoField">
+
     <input type="text" name="name" placeholder="Ваше ім'я" required>
     <input type="tel" name="phone" placeholder="Телефон" required>
     <input type="email" name="email" placeholder="Email">
 
     <!-- комментарий -->
     <textarea name="comment" placeholder="Коментар"></textarea>
+<h3>Доставка</h3>
 
+<select name="delivery" id="delivery" onchange="changeDelivery()">
+  <option value="Нова Пошта">Нова Пошта</option>
+  <option value="Укрпошта">Укрпошта</option>
+</select>
+
+<div id="novaPost">
+  <input type="text" name="nova_branch" placeholder="Номер відділення">
+</div>
+
+<div id="ukrPost" style="display:none;">
+  <input type="text" name="postcode" placeholder="Поштовий індекс">
+</div>
+
+<input type="text" name="address" placeholder="Місто, вулиця, будинок">
     <!-- оплата -->
     <select name="payment">
       <option value="Наложений платіж">Наложений платіж</option>
       <option value="Оплата на карту">Оплата на карту</option>
     </select>
 
- <input type="hidden" name="product" id="productField">
+ <input type="hidden" name="cart" id="cartField">
+  <input type="hidden" name="total" id="totalField">
+  <input type="hidden" name="delivery_info" id="deliveryInfoField">
 
     <button type="submit" class="btn">Надіслати</button>
   </form>
