@@ -149,3 +149,22 @@ footer { text-align:center; padding:25px; background: var(--card); border-top:2p
 .social img:hover {
   transform: scale(1.2);
 }
+
+.location {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.location p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #3b2f2f;
+}
+
+.location iframe {
+  width: 100%;
+  max-width: 300px;   /* маленькая но видимая */
+  height: 180px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
